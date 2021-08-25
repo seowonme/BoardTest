@@ -14,9 +14,9 @@ public class BoardTestApplication {
 		SpringApplication.run(BoardTestApplication.class, args);
 	}
 	
-	@Bean //@PutMappint, @DeleteMapping이 동작할 수 있도록
+	/*@Bean //@PutMappint, @DeleteMapping이 동작할 수 있도록
 	public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
 		return new HiddenHttpMethodFilter();
-	}
+	}*/
 
 }

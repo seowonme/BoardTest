@@ -1,8 +1,13 @@
 package choi.seowon.board.domain.Repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import choi.seowon.board.domain.Board;
 
-public interface BoardRepository extends JpaRepository<Board, Long>{
+import choi.seowon.board.domain.Entity.BoardEntity;
 
+public interface BoardRepository extends JpaRepository<BoardEntity, Long>{
+	//Board findByNickname(String nickname);
+	List<BoardEntity> findByTitleContaining(String keyword);
+	
 }
