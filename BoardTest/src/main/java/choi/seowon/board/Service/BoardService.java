@@ -2,6 +2,8 @@ package choi.seowon.board.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.domain.Page;
@@ -70,7 +72,7 @@ public class BoardService {
 		//총 게시글 수
 		Double postsTotalCount = Double.valueOf(this.getBoardCount());
 		
-		//총 게시글 수를 기준으로 계산한 마지막 페이지 번호
+		//총 게시글 수를 기준으로 계산한 마지막 페이지 번호(올림 계산)
 		Integer totalLastPageNum = (int)(Math.ceil((postsTotalCount/PAGE_POST_COUNT)));
 		
 		//현재 페이지를 기준으로 블럭의 마지막 페이지 번호 계산
@@ -96,14 +98,15 @@ public class BoardService {
 	
 	@Transactional
 	public BoardDto getPost(Long id) { //게시글의 id를 받아 해당 게시글의 데이터만 가져와 화면에 뿌림
-		BoardEntity board = boardRepository.findById(id).get();
+		Optional<BoardEntity> boardEntityWrapper = boardRepository.findById(id);
+        BoardEntity boardEntity = boardEntityWrapper.get();
 		
 		BoardDto boardDto = BoardDto.builder()
-				.id(board.getId())
-				.nickname(board.getNickname())
-				.title(board.getTitle())
-				.content(board.getContent())
-				.createdDate(board.getCreatedDate())
+				.id(boardEntity.getId())
+				.nickname(boardEntity.getNickname())
+				.title(boardEntity.getTitle())
+				.content(boardEntity.getContent())
+				.createdDate(boardEntity.getCreatedDate())
 				.build();
 		return boardDto;
 	}
@@ -128,13 +131,13 @@ public class BoardService {
 	    return boardDtoList;
 	}
 	
-	private BoardDto convertEntityToDto(BoardEntity board) {
+	private BoardDto convertEntityToDto(BoardEntity boardEntity) {
 		return BoardDto.builder()
-				.id(board.getId())
-				.nickname(board.getNickname())
-				.title(board.getTitle())
-				.content(board.getContent())
-				.createdDate(board.getCreatedDate())
+				.id(boardEntity.getId())
+				.nickname(boardEntity.getNickname())
+				.title(boardEntity.getTitle())
+				.content(boardEntity.getContent())
+				.createdDate(boardEntity.getCreatedDate())
 				.build();
 	}
 

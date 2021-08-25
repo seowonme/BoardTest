@@ -3,7 +3,6 @@ package choi.seowon.board.domain.Repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import choi.seowon.board.domain.Entity.BoardEntity;
 
 public interface BoardRepository extends JpaRepository<BoardEntity, Long>{

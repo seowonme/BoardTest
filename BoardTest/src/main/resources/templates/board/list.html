@@ -6,15 +6,8 @@
     <link rel='stylesheet' href='/webjars/bootstrap/4.5.0/css/bootstrap.min.css'>
 </head>
 <body>
+
 <header th:insert="common/header.html"></header>
-
-<form action="/board/search" method="GET">
-    <div>
-        <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
-    </div>
-
-    <button>검색하기</button>
-</form>
 
 <div class="container">
     <table class="table">
@@ -56,6 +49,14 @@
         <a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
     </span>
     </div>
+    
+    <form action="/board/search" method="GET">
+	    <div>
+	        <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
+	    </div>
+	
+	    <button>검색하기</button>
+    </form>
     
 </div>
 <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>

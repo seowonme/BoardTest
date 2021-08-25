@@ -25,13 +25,13 @@ public class BoardDto { //Controller와 Service사이에서 데이터 주고받�
 	private LocalDateTime modifiedDate;
 	
 	public BoardEntity toEntity() {
-		BoardEntity board = BoardEntity.builder()
+		BoardEntity boardEntity = BoardEntity.builder()
 				.id(id)
 				.nickname(nickname)
 				.title(title)
 				.content(content)
 				.build();
-		return board;
+		return boardEntity;
    }
 	
 	@Builder
