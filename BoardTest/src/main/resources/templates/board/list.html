@@ -17,6 +17,7 @@
             <th scope="col">제목</th>
             <th scope="col">작성자</th>
             <th scope="col">작성일</th>
+            <th scope="col">카테고리</th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +35,9 @@
             </td>
             <td>
                 <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+            </td>
+            <td>
+               <span th:text="${post.boardType.value}"></span>
             </td>
         </tr>
         </tbody>

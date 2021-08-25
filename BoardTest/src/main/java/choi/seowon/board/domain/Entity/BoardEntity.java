@@ -2,6 +2,7 @@ package choi.seowon.board.domain.Entity;
 
 import javax.persistence.*;
 
+import choi.seowon.board.domain.Entity.enums.BoardType;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,20 +22,27 @@ public class BoardEntity extends TimeEntity{
 	@Column(length = 20)
 	private String nickname;
 	
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String title;
 	
 	@Column(length = 2048)
 	private String content;
 	
+	//@Column(name="board_type")
+	@Column
+	@Enumerated(EnumType.STRING)
+	private BoardType boardType;
+	
+	
 	//private LocalDateTime created_at;
 	
 	@Builder
-	public BoardEntity(Long id, String nickname, String title, String content) {
+	public BoardEntity(Long id, String nickname, String title, String content, BoardType boardType) {
 		this.id = id;
 		this.nickname = nickname;
 		this.title = title;
 		this.content = content;
+		this.boardType = boardType;
 		
 	}
 

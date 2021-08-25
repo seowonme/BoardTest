@@ -14,6 +14,7 @@ import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 
 import choi.seowon.board.domain.Entity.BoardEntity;
+import choi.seowon.board.domain.Entity.enums.BoardType;
 import choi.seowon.board.domain.Repository.BoardRepository;
 import choi.seowon.board.dto.BoardDto;
 import lombok.AllArgsConstructor;
@@ -107,6 +108,7 @@ public class BoardService {
 				.title(boardEntity.getTitle())
 				.content(boardEntity.getContent())
 				.createdDate(boardEntity.getCreatedDate())
+				.boardType(BoardType.notice)
 				.build();
 		return boardDto;
 	}
@@ -138,6 +140,7 @@ public class BoardService {
 				.title(boardEntity.getTitle())
 				.content(boardEntity.getContent())
 				.createdDate(boardEntity.getCreatedDate())
+				.boardType(BoardType.notice)
 				.build();
 	}
 
