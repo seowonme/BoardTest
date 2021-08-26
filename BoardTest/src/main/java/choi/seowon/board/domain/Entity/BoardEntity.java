@@ -1,6 +1,9 @@
 package choi.seowon.board.domain.Entity;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
+
 
 import choi.seowon.board.domain.Entity.enums.BoardType;
 import lombok.AccessLevel;
@@ -13,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity //db 테이블과 매핑되는 객체
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 //@EntityListeners(AuditingEntityListener.class)
-public class BoardEntity extends TimeEntity{
+public class BoardEntity extends TimeEntity implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +30,8 @@ public class BoardEntity extends TimeEntity{
 	
 	@Column(length = 2048)
 	private String content;
+	
+	
 	
 	//@Column(name="board_type")
 	@Column
@@ -45,6 +50,5 @@ public class BoardEntity extends TimeEntity{
 		this.boardType = boardType;
 		
 	}
-
 	
 }

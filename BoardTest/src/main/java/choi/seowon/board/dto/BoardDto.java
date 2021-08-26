@@ -26,6 +26,17 @@ public class BoardDto { //Controller와 Service사이에서 데이터 주고받�
 	private LocalDateTime modified_at;
 	private BoardType boardType;
 	
+	/*public BoardEntity toEntity() {
+		BoardEntity build = BoardEntity.builder()
+				.id(id)
+				.nickname(nickname)
+				.title(title)
+				.content(content)
+				.boardType(boardType)
+				.build();
+		return build;
+	}*/
+	
 	public BoardEntity toEntity() {
 		BoardEntity boardEntity = BoardEntity.builder()
 				.id(id)
@@ -47,5 +58,5 @@ public class BoardDto { //Controller와 Service사이에서 데이터 주고받�
 		this.modifiedDate = modifiedDate;
 		this.boardType = boardType;
 	}
-
+	
 }

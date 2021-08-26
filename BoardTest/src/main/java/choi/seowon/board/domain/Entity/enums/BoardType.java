@@ -11,5 +11,21 @@ public enum BoardType {
 	public String getValue() {
 		return this.value;
 	}
+	/*------------------------------*/
+	
+	/*public static BoardType getBoardType(final String value) {
+		for(final BoardType boardType : values()) {
+			if(boardType.value.equalsIgnoreCase(value)) {
+				return boardType;
+			}
+		}
+		final String message = "Unknown VoteType " + value + ", allowed values are " + Arrays.toString(values());
+	    throw new Exception(message);
+	}*/
+	
+	
+	/*public static void main(String[] args) {
+		System.out.println(BoardType.press);
+	}*/
 
 }
