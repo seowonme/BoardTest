@@ -1,15 +1,19 @@
 package choi.seowon.board.domain.Entity.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum BoardType {
 	notice("공지사항"),
 	press("보도자료");
 	
-	private String value;
+	private final String value;
 	BoardType(String value){
 		this.value = value;
 	}
 	public String getValue() {
-		return this.value;
+		//return this.value;
+		return value;
 	}
 	/*------------------------------*/
 	

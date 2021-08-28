@@ -20,7 +20,7 @@ public class BoardEntity extends TimeEntity implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long board_id;
 	
 	@Column(length = 20)
 	private String nickname;
@@ -42,8 +42,8 @@ public class BoardEntity extends TimeEntity implements Serializable{
 	//private LocalDateTime created_at;
 	
 	@Builder
-	public BoardEntity(Long id, String nickname, String title, String content, BoardType boardType) {
-		this.id = id;
+	public BoardEntity(Long board_id, String nickname, String title, String content, BoardType boardType) {
+		this.board_id = board_id;
 		this.nickname = nickname;
 		this.title = title;
 		this.content = content;

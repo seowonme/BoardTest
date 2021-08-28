@@ -39,7 +39,7 @@ public class BoardService {
 	
 	@Transactional
 	public Long savePost (BoardDto boardDto) {
-		return boardRepository.save(boardDto.toEntity()).getId();
+		return boardRepository.save(boardDto.toEntity()).getBoard_id();
 	}
 	
 	@Transactional
@@ -103,12 +103,12 @@ public class BoardService {
         BoardEntity boardEntity = boardEntityWrapper.get();
 		
 		BoardDto boardDto = BoardDto.builder()
-				.id(boardEntity.getId())
+				.board_id(boardEntity.getBoard_id())
 				.nickname(boardEntity.getNickname())
 				.title(boardEntity.getTitle())
 				.content(boardEntity.getContent())
 				.createdDate(boardEntity.getCreatedDate())
-				.boardType(BoardType.notice)
+				.boardType(boardEntity.getBoardType())
 				.build();
 		return boardDto;
 	}
@@ -135,7 +135,7 @@ public class BoardService {
 	
 	private BoardDto convertEntityToDto(BoardEntity boardEntity) {
 		return BoardDto.builder()
-				.id(boardEntity.getId())
+				.board_id(boardEntity.getBoard_id())
 				.nickname(boardEntity.getNickname())
 				.title(boardEntity.getTitle())
 				.content(boardEntity.getContent())

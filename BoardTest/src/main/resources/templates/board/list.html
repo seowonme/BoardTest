@@ -23,10 +23,10 @@
         <tbody>
         <tr class="text-center" th:each="post : ${postList}">
             <th scope="row">
-                <span th:text="${post.id}"></span>
+                <span th:text="${post.board_id}"></span>
             </th>
             <td>
-                <a th:href="@{'/post/' + ${post.id}}">
+                <a th:href="@{'/post/' + ${post.board_id}}">
                     <span th:text="${post.title}"></span>
                 </a>
             </td>
